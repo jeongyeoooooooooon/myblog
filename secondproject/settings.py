@@ -21,11 +21,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 # SECRET_KEY = 'ios7vifcotnwo0(n*(5$)it)lyl)t9anvmmn0tufxmwl0!wnwk'
-SECRET_KEY = os.environ.get('ios7vifcotnwo0(n*(5$)it)lyl)t9anvmmn0tufxmwl0!wnwk')
-DEBUG = bool(os.environ.get'DJANGO_DEBUG', True)
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'cg#p$g+j9tax!#a3cup@1$8obt2_+&k3q+pmu)5%asj6yjpkag')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# DEBUG = True
+DEBUG = bool( os.environ.get('DJANGO_DEBUG', True) )
 
 ALLOWED_HOSTS = []
 
@@ -127,11 +127,13 @@ STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'portfolio', 'static'),
+    os.path.join(BASE_DIR, 'blogapp','static'),
 ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL= '/media/'
 
+
 import dj_database_url
-db_from_env=dj_database_url.config(conn_max_age=500)
-DATABASES['default']. update(db_from_env)
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
